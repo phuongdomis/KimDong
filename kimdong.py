@@ -153,7 +153,7 @@ def gio_hang_page():
     df_gio_hang = state.df_gio_hang  # Lấy giỏ hàng từ session state
 
     st.write('## Giỏ hàng')
-    st.dataframe(df_gio_hang)
+    # st.dataframe(df_gio_hang)
     # Hiển thị bảng sản phẩm
     df_gio_hang.reset_index(drop=True, inplace=True)
     for i, row in df_gio_hang.iterrows():

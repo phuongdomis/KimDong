@@ -236,7 +236,7 @@ def thong_ke_page():
 # Ứng dụng chính
 def main():
     if 'df_gio_hang' not in state:
-        state.df_gio_hang = pd.DataFrame(columns=['Tên sách', 'Giá', 'Thành tiền'])  # Khởi tạo giỏ hàng trong session state
+        state.df_gio_hang = pd.DataFrame(columns=['Tên sách', 'Giá', 'Số lượng', 'Thành tiền'])  # Khởi tạo giỏ hàng trong session state
     
     tabs = {
         "Giới thiệu": gioi_thieu_page,

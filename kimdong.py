@@ -71,15 +71,13 @@ def show_products(data):
             with columns[j % num_cols]:
                 gia = data.loc[j, 'Giá']
                 st.write('Giá bán:', gia)
-                if st.button(f'{j} Add to Cart'):
-                    # df_gio_hang = df_gio_hang.append(data.loc[j, ['Tên sách', 'Giá']])  # Thêm sản phẩm vào giỏ hàng
-                    df_gio_hang = pd.concat([df_gio_hang, data.loc[[j], ['Tên sách', 'Giá']]], axis = 0)
+                if st.button('Thêm vào giỏ hàng', key=f'add_to_cart_{j}'): 
+                    df_gio_hang = pd.concat([df_gio_hang, data.loc[[j], ['Tên sách', 'Giá']]], axis = 0) # Thêm sản phẩm vào giỏ hàng
                     state.df_gio_hang = df_gio_hang  # Lưu giỏ hàng vào session state
                 with st.expander('Thông tin...'):
                     st.write("Đã bán: ", data.loc[j, "Đã bán"])
                     st.write("Rating: ", data.loc[j, "Đánh giá"])
                     st.write('**Nội dung:** ', data.loc[j, "Nội dung"])
-
 
 
 
@@ -236,7 +234,7 @@ def thong_ke_page():
 # Ứng dụng chính
 def main():
     if 'df_gio_hang' not in state:
-        state.df_gio_hang = pd.DataFrame(columns=['Tên sách', 'Giá'])  # Khởi tạo giỏ hàng trong session state
+        state.df_gio_hang = pd.DataFrame(columns=['Tên sách', 'Giá', 'Số lượng', 'Thành tiền'])  # Khởi tạo giỏ hàng trong session state
     
     tabs = {
         "Giới thiệu": gioi_thieu_page,

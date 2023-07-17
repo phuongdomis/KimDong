@@ -29,20 +29,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-def set_custom_css():
-    """Cài đặt CSS tùy chỉnh cho toàn bộ ứng dụng Streamlit."""
-    custom_css = """
-    <style>
-        body {
-            background-color: #FFFFFF;  /* Màu nền trắng */
-            color: #000000;  /* Màu chữ đen */
-        }
-    </style>
-    """
-    st.markdown(custom_css, unsafe_allow_html=True)
-set_custom_css()
-
-
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as file:
         encoded_image = base64.b64encode(file.read()).decode("utf-8")
